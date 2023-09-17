@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "Mont-Regular";
+  src: url("./assets/mont/Mont-Regular.ttf");
+}
+@font-face {
+  font-family: "Mont-Bold";
+  src: url("./assets/mont/Mont-Bold.eot");
+  src: url("./assets/mont/Mont-Bold.eot?#iefix") format("embedded-opentype"),
+    url(" ./assets/mont/Mont-Bold.woff2") format("woff2"),
+    url("./assets/mont/Mont-Bold.woff") format("woff"),
+    url("./assets/mont/Mont-Bold.ttf") format("truetype");
+}
+
+:root {
+  font-family: Mont-Regular;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #5d5d5d;
+  background-color: #efefef;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+label {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}

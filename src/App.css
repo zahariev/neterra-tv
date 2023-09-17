@@ -1,0 +1,38 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+*,
+:after,
+:before {
+  box-sizing: inherit;
+}
+body {
+  background-color: #452d64;
+  font-family: Mont-Regular;
+  /* font-weight: 100; */
+  font-style: normal;
+  color: #333;
+  margin: 0;
+  padding-top: 56px;
+}
+.container {
+  max-width: 1280px;
+}
+@media (min-width: 1280px) {
+  .container-max {
+    width: 90%;
+    max-width: 1920px;
+  }
+}

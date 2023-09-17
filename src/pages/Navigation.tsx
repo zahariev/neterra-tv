@@ -1,17 +1,19 @@
 import { Link, Outlet } from "react-router-dom";
 import styled from "styled-components";
-import LogoIcon from "../components/Icon";
+import Icon from "../components/Icon";
 import logo from "../assets/neterra-tv-logo.svg";
+import shopping_cart from "../assets/shopping_cart.svg";
+import profile from "../assets/profile.svg";
+import logout from "../assets/logout.svg";
 import StyledLink from "../components/StyledLink";
 
 const Nav = styled.nav`
   height: 3.5rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: #452d64;
   color: white;
-  padding: 0rem 1rem;
   position: sticky;
   top: 0;
 `;
@@ -22,12 +24,29 @@ const NavList = styled.ul`
   display: flex;
   gap: 1rem;
   list-style: none;
+  align-items: center;
   padding: 0;
   margin: 0;
+
+  li:first-child {
+    min-width: 6rem;
+  }
 `;
 
-const NavItem = styled.li``;
+const NavItem = styled.li`
+  min-width: 2rem;
+`;
 
+const MenuIcon = styled(Icon)`
+  width: 25px;
+  height: 25px;
+  padding: 0.5rem;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  fill: white;
+  top: 0.5rem;
+`;
 const menuItems = [
   {
     label: "ТВ на живо",
@@ -66,7 +85,7 @@ const Navigation = () => {
     <>
       <Nav>
         <Link to="/">
-          <LogoIcon src={logo} alt="App Logo" />
+          <Icon src={logo} alt="App Logo" />
         </Link>
         <NavList>
           {menuItems.map((item, index) => {
@@ -78,6 +97,20 @@ const Navigation = () => {
               </NavItem>
             );
           })}
+
+          <li>
+            <MenuIcon
+              className="material-symbols-rounded"
+              src={shopping_cart}
+              alt="Search"
+            />
+          </li>
+          <li>
+            <MenuIcon src={profile} alt="Search" />
+          </li>
+          <li>
+            <MenuIcon src={logout} alt="Search" />
+          </li>
         </NavList>
       </Nav>
       <Outlet />

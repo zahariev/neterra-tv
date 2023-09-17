@@ -1,16 +1,20 @@
 import styled from "styled-components";
 
+interface IconProps {
+  styleProps?: React.CSSProperties;
+}
+
 const StyledImg = styled.img`
-  width: 230px;
-  height: 28px;
-  position: relative;
+  width: 225px;
+  height: 56px;
   cursor: pointer;
 `;
 
-const LogoIcon: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = ({
+const Icon: React.FC<IconProps & React.ImgHTMLAttributes<HTMLImageElement>> = ({
+  styleProps,
   ...props
 }) => {
-  return <StyledImg {...props} />;
+  return <StyledImg style={styleProps} {...props} />;
 };
 
-export default LogoIcon;
+export default Icon;

@@ -1,7 +1,6 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import Icon from "../components/Icon";
-import logo from "../assets/neterra-tv-logo.svg";
 import shopping_cart from "../assets/shopping_cart.svg";
 import profile from "../assets/profile.svg";
 import logout from "../assets/logout.svg";
@@ -17,8 +16,6 @@ const Nav = styled.nav`
   position: sticky;
   top: 0;
 `;
-//   padding: 1rem 2rem;
-//   background-color: #333;
 
 const NavList = styled.ul`
   display: flex;
@@ -47,46 +44,67 @@ const MenuIcon = styled(Icon)`
   fill: white;
   top: 0.5rem;
 `;
+
 const menuItems = [
   {
-    label: "ТВ на живо",
-    path: "/live",
+    label: "Настройки",
+    path: "/profile",
   },
   {
-    label: "Видеотека",
-    path: "/videos",
+    label: "Моят абонамент",
+    path: "/profile/subscription",
   },
   {
-    label: "Програма",
-    path: "/guide",
+    label: "Neterra.TV+ история",
+    path: "/profiles/extras/history",
   },
   {
-    label: "Абонамент",
-    path: "/access-plans",
+    label: "Платежни методи",
+    path: "/profile/payment-methods",
   },
   {
-    label: "Neterra.TV+",
-    path: "/plus",
+    label: "Родителски контрол",
+    path: "/profile/parental-control",
   },
   {
-    label: "Блог",
-    path: "https://blog.neterra.tv",
+    label: "Потребителски сесии",
+    path: "/profile/sessions",
+  },
+  {
+    label: "Моите подаръчни карти",
+    path: "/profile/my-gift-cards",
+  },
+  {
+    label: "Доведи приятел",
+    path: "/profile/my-promo-code",
     target: "_blank",
   },
   {
     label: "Приложения",
     path: "/profile/applications",
   },
+  {
+    label: "Съобщения",
+    path: "/profile/messages",
+  },
+  {
+    label: "Маркетинг",
+    path: "/profile/marketing",
+  },
+  {
+    label: "Код от партньор",
+    path: "/profile/partners",
+  },
+  {
+    label: "Изход",
+    path: "/sign-out",
+  },
 ];
-/*ТВ на живо Видеотека Програма Абонамент Neterra.TV+ Блог Приложения */
 
-const Navigation = () => {
+const Menu = () => {
   return (
     <>
       <Nav>
-        <Link to="/">
-          <Icon src={logo} alt="App Logo" />
-        </Link>
         <NavList>
           {menuItems.map((item, index) => {
             return (
@@ -106,9 +124,7 @@ const Navigation = () => {
             />
           </li>
           <li>
-            <Link to="/profile">
-              <MenuIcon src={profile} alt="Search" />
-            </Link>
+            <MenuIcon src={profile} alt="Search" />
           </li>
           <li>
             <MenuIcon src={logout} alt="Search" />
@@ -120,4 +136,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default Menu;

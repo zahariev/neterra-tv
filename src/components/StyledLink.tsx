@@ -14,9 +14,16 @@ const StyledLinkComponent = styled(Link)`
 
 interface StyledLinkProps extends LinkProps {
   to: string; // Explicitly define the 'to' prop
+  styleProps?: React.CSSProperties; // Allow any other props
 }
 
-const StyledLink: React.FC<StyledLinkProps> = ({ to, ...props }) => {
-  return <StyledLinkComponent to={buildPath(to)} {...props} />;
+const StyledLink: React.FC<StyledLinkProps> = ({
+  to,
+  styleProps,
+  ...props
+}) => {
+  return (
+    <StyledLinkComponent style={styleProps} to={buildPath(to)} {...props} />
+  );
 };
 export default StyledLink;

@@ -1,49 +1,6 @@
-import { Outlet } from "react-router-dom";
 import styled from "styled-components";
-import Icon from "../components/Icon";
-import shopping_cart from "../assets/shopping_cart.svg";
-import profile from "../assets/profile.svg";
-import logout from "../assets/logout.svg";
+
 import StyledLink from "../components/StyledLink";
-
-const Nav = styled.nav`
-  height: 3.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background-color: #452d64;
-  color: white;
-  position: sticky;
-  top: 0;
-`;
-
-const NavList = styled.ul`
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-
-  li:first-child {
-    min-width: 6rem;
-  }
-`;
-
-const NavItem = styled.li`
-  min-width: 2rem;
-`;
-
-const MenuIcon = styled(Icon)`
-  width: 25px;
-  height: 25px;
-  padding: 0.5rem;
-  color: white;
-  cursor: pointer;
-  font-weight: 700;
-  fill: white;
-  top: 0.5rem;
-`;
 
 const menuItems = [
   {
@@ -101,6 +58,36 @@ const menuItems = [
   },
 ];
 
+const Nav = styled.nav``;
+
+const NavList = styled.ul`
+  display: block;
+
+  list-style: none;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+`;
+
+const NavItem = styled.li`
+  padding: 5px;
+  color: #9e949f;
+  float: left;
+  clear: left;
+`;
+
+const MenuLink = styled(StyledLink)`
+  color: #9e949f;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 400;
+  padding: 3px;
+  display: block;
+  &:hover {
+    color: #fff;
+  }
+`;
+
 const Menu = () => {
   return (
     <>
@@ -109,29 +96,14 @@ const Menu = () => {
           {menuItems.map((item, index) => {
             return (
               <NavItem key={index}>
-                <StyledLink target={item.target} to={item.path}>
+                <MenuLink target={item.target} to={item.path}>
                   {item.label}
-                </StyledLink>
+                </MenuLink>
               </NavItem>
             );
           })}
-
-          <li>
-            <MenuIcon
-              className="material-symbols-rounded"
-              src={shopping_cart}
-              alt="Search"
-            />
-          </li>
-          <li>
-            <MenuIcon src={profile} alt="Search" />
-          </li>
-          <li>
-            <MenuIcon src={logout} alt="Search" />
-          </li>
         </NavList>
       </Nav>
-      <Outlet />
     </>
   );
 };

@@ -12,29 +12,43 @@ const Nav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  @media (max-width: 1280px) {
+    justify-content: flex-start;
+
+    height: 5.5rem;
+  }
   background-color: #452d64;
   color: white;
   position: sticky;
   top: 0;
+  left: 0;
 `;
 //   padding: 1rem 2rem;
 //   background-color: #333;
+const StyleLink = styled(Link)`
+  padding: 0rem 2rem;
+`;
 
 const NavList = styled.ul`
-  display: flex;
-  gap: 1rem;
+  display: inline-flex;
+  gap: 0rem 1rem;
   list-style: none;
   align-items: center;
   padding: 0;
   margin: 0;
-
   li:first-child {
     min-width: 6rem;
+  }
+  @media (max-width: 1280px) {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0rem 2rem;
   }
 `;
 
 const NavItem = styled.li`
   min-width: 2rem;
+  margin-right: 0.5rem;
 `;
 
 const MenuIcon = styled(Icon)`
@@ -84,9 +98,9 @@ const Navigation = () => {
   return (
     <>
       <Nav>
-        <Link to="/">
+        <StyleLink to="/">
           <Icon src={logo} alt="App Logo" />
-        </Link>
+        </StyleLink>
         <NavList>
           {menuItems.map((item, index) => {
             return (

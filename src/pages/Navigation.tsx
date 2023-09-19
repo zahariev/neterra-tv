@@ -5,6 +5,7 @@ import logo from "../assets/neterra-tv-logo.svg";
 import shopping_cart from "../assets/shopping_cart.svg";
 import profile from "../assets/profile.svg";
 import logout from "../assets/logout.svg";
+import menu from "../assets/menu.svg";
 import StyledLink from "../components/StyledLink";
 
 const Nav = styled.nav`
@@ -16,6 +17,10 @@ const Nav = styled.nav`
     justify-content: flex-start;
 
     height: 5.5rem;
+  }
+  @media (max-width: 1024px) {
+    height: 3.5rem;
+    justify-content: center;
   }
   background-color: #452d64;
   color: white;
@@ -29,8 +34,26 @@ const StyleLink = styled(Link)`
   padding: 0rem 2rem;
 `;
 
+const MenuIcon = styled(Icon)`
+  width: 25px;
+  height: 25px;
+  padding: 0.5rem 1rem;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0.5rem;
+  display: none;
+
+  @media (max-width: 1024px) {
+    display: block;
+  }
+`;
+
 const NavList = styled.ul`
   display: inline-flex;
+  background-color: #452d64;
+
   gap: 0rem 1rem;
   list-style: none;
   align-items: center;
@@ -44,6 +67,9 @@ const NavList = styled.ul`
     justify-content: flex-end;
     gap: 0rem 2rem;
   }
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 const NavItem = styled.li`
@@ -51,7 +77,7 @@ const NavItem = styled.li`
   margin-right: 0.5rem;
 `;
 
-const MenuIcon = styled(Icon)`
+const CustomIcon = styled(Icon)`
   width: 25px;
   height: 25px;
   padding: 0.5rem;
@@ -101,6 +127,8 @@ const Navigation = () => {
         <StyleLink to="/">
           <Icon src={logo} alt="App Logo" />
         </StyleLink>
+
+        <MenuIcon className="material-symbols-rounded" src={menu} alt="menu" />
         <NavList>
           {menuItems.map((item, index) => {
             return (
@@ -113,7 +141,7 @@ const Navigation = () => {
           })}
 
           <li>
-            <MenuIcon
+            <CustomIcon
               className="material-symbols-rounded"
               src={shopping_cart}
               alt="Search"
@@ -121,11 +149,11 @@ const Navigation = () => {
           </li>
           <li>
             <Link to="/profile">
-              <MenuIcon src={profile} alt="Search" />
+              <CustomIcon src={profile} alt="Search" />
             </Link>
           </li>
           <li>
-            <MenuIcon src={logout} alt="Search" />
+            <CustomIcon src={logout} alt="Search" />
           </li>
         </NavList>
       </Nav>

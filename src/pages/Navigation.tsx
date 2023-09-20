@@ -31,7 +31,16 @@ const Nav = styled.nav`
 `;
 
 const StyleLink = styled(Link)`
-  padding: 0rem 2rem;
+  padding: 0.4rem 2rem 0rem 2rem;
+  @media (max-width: 320px) {
+    zoom: 0.8;
+    scale: 0.8;
+  }
+
+  @media (max-width: 250px) {
+    zoom: 0.6;
+    scale: 0.6;
+  }
 `;
 
 const MenuIcon = styled(Icon)`
@@ -52,7 +61,6 @@ const MenuIcon = styled(Icon)`
 
 const NavList = styled.ul`
   display: inline-flex;
-  background-color: #452d64;
 
   gap: 0rem 1rem;
   list-style: none;
@@ -70,6 +78,7 @@ const NavList = styled.ul`
   }
   @media (max-width: 1024px) {
     display: none;
+    background-color: #452d64;
   }
 `;
 

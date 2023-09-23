@@ -79,6 +79,10 @@ const NavList = styled.ul`
 
   @media (max-width: 1024px) {
     background-color: #452d64;
+    position: absolute;
+    padding-top: 1rem;
+    top: 2.9rem;
+    left: 0;
   }
 `;
 
@@ -129,17 +133,16 @@ const menuItems = [
     path: "/profile/applications",
   },
 ];
-/*ТВ на живо Видеотека Програма Абонамент Neterra.TV+ Блог Приложения */
 
 const Navigation = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   useEffect(() => {
-    if (navbarOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    // if (navbarOpen) {
+    //   document.body.style.overflow = "hidden";
+    // } else {
+    //   document.body.style.overflow = "unset";
+    // }
 
     window.addEventListener("resize", () => {
       if (window.innerWidth > 1024) {

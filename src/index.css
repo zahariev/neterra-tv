@@ -38,3 +38,10 @@ label {
 a {
   text-decoration: none;
 }
+
+.show {
+  display: inline-flex;
+}
+.hide {
+  display: none;
+}

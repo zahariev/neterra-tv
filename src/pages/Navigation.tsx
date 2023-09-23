@@ -7,6 +7,7 @@ import profile from "../assets/profile.svg";
 import logout from "../assets/logout.svg";
 import menu from "../assets/menu.svg";
 import StyledLink from "../components/StyledLink";
+import { useEffect, useState } from "react";
 
 const Nav = styled.nav`
   height: 3.5rem;
@@ -33,12 +34,10 @@ const Nav = styled.nav`
 const StyleLink = styled(Link)`
   padding: 0.4rem 2rem 0rem 2rem;
   @media (max-width: 320px) {
-    zoom: 0.8;
     scale: 0.8;
   }
 
   @media (max-width: 250px) {
-    zoom: 0.6;
     scale: 0.6;
   }
 `;
@@ -60,8 +59,8 @@ const MenuIcon = styled(Icon)`
 `;
 
 const NavList = styled.ul`
-  display: inline-flex;
-
+  display: ${(props) =>
+    props.className === "hide" ? "none" : "inline - flex"};
   gap: 0rem 1rem;
   list-style: none;
   align-items: center;
@@ -71,13 +70,14 @@ const NavList = styled.ul`
   li:first-child {
     min-width: 6rem;
   }
+
   @media (max-width: 1280px) {
     flex-wrap: wrap;
     justify-content: flex-end;
     gap: 0rem 2rem;
   }
+
   @media (max-width: 1024px) {
-    display: none;
     background-color: #452d64;
   }
 `;
@@ -97,6 +97,7 @@ const CustomIcon = styled(Icon)`
   fill: white;
   top: 0.5rem;
 `;
+
 const menuItems = [
   {
     label: "ТВ на живо",
@@ -131,6 +132,23 @@ const menuItems = [
 /*ТВ на живо Видеотека Програма Абонамент Neterra.TV+ Блог Приложения */
 
 const Navigation = () => {
+  const [navbarOpen, setNavbarOpen] = useState(false);
+
+  useEffect(() => {
+    if (navbarOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 1024) {
+        setNavbarOpen(true);
+      } else {
+        setNavbarOpen(false);
+      }
+    });
+  }, [navbarOpen]);
   return (
     <>
       <Nav>
@@ -138,8 +156,16 @@ const Navigation = () => {
           <Icon src={logo} alt="App Logo" />
         </StyleLink>
 
-        <MenuIcon className="material-symbols-rounded" src={menu} alt="menu" />
-        <NavList>
+        <MenuIcon
+          className="material-symbols-rounded"
+          src={menu}
+          alt="menu"
+          onClick={() => {
+            console.log("asd");
+            setNavbarOpen((prev) => !prev);
+          }}
+        />
+        <NavList className={`${navbarOpen ? "show" : "hide"}`}>
           {menuItems.map((item, index) => {
             return (
               <NavItem key={index}>

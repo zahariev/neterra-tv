@@ -188,11 +188,11 @@ const Navigation = () => {
           </li>
           <li>
             <Link to="/profile">
-              <CustomIcon src={profile} alt="Search" />
+              <CustomIcon src={profile} alt="Profile" />
             </Link>
           </li>
           <li>
-            <CustomIcon src={logout} alt="Search" />
+            <CustomIcon src={logout} alt="logout" />
           </li>
         </NavList>
       </Nav>

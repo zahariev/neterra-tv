@@ -58,19 +58,22 @@ const menuItems = [
   },
 ];
 
-const Nav = styled.nav``;
+const Nav = styled.nav`
+  border-right: 1px dashed #9e949f;
+  width: 37%;
+  height: 90%;
+  position: absolute;
+`;
 
 const NavList = styled.ul`
   display: block;
-
   list-style: none;
   align-items: center;
-  padding: 0;
+  padding: 2rem;
   margin: 0;
 `;
 
 const NavItem = styled.li`
-  padding: 5px;
   color: #9e949f;
   float: left;
   clear: left;
@@ -86,6 +89,7 @@ const MenuLink = styled(StyledLink)`
   &:hover {
     color: #fff;
   }
+  padding: 0.48rem 1rem;
 `;
 
 const Menu = () => {

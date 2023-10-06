@@ -1,6 +1,10 @@
 import styled from "styled-components";
-
 import StyledLink from "../components/StyledLink";
+
+interface MenuProps {
+  styleProps?: React.CSSProperties;
+  displayed: string;
+}
 
 const menuItems = [
   {
@@ -60,7 +64,7 @@ const menuItems = [
 
 const Nav = styled.nav`
   border-right: 1px dashed #9e949f;
-  width: 37%;
+  width: 320px;
   height: 90%;
   position: absolute;
 `;
@@ -92,10 +96,14 @@ const MenuLink = styled(StyledLink)`
   padding: 0.48rem 1rem;
 `;
 
-const Menu = () => {
+const Menu: React.FC<MenuProps & React.HTMLProps<HTMLDivElement>> = ({
+  styleProps,
+  displayed,
+  ...props
+}) => {
   return (
     <>
-      <Nav>
+      <Nav style={styleProps} {...props} className={displayed}>
         <NavList>
           {menuItems.map((item, index) => {
             return (
